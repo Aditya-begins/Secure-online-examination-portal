@@ -1,0 +1,1443 @@
+# MASTER PROMPT — SECURE ONLINE EXAMINATION PORTAL
+
+## 1. PROJECT OVERVIEW
+
+Act as a **Senior Full-Stack Software Engineer, UI/UX Designer, Cybersecurity Specialist, AI Engineer, and System Architect**.
+
+Build a complete, production-style, AI-powered web application named:
+
+**SECURE ONLINE EXAMINATION PORTAL**
+
+**Tagline:** "Smart Exams. Secure Environment. Intelligent Evaluation."
+
+The application must provide a modern, secure, visually impressive online examination platform where students can register, verify their identity, take examinations, practice mock tests, and view performance reports.
+
+Administrators must be able to register through an authorized process, create and manage examinations, monitor student activities, review suspected cheating incidents, evaluate performance, and generate detailed reports.
+
+The project must include:
+
+- Fully functional frontend and backend.
+- Real database integration.
+- Student and administrator authentication.
+- Face verification and biometric login options.
+- Email and mobile number verification.
+- AI-powered examination proctoring.
+- Webcam, microphone, and screen-sharing monitoring.
+- Head posture and eye-gaze tracking.
+- Automated violation warnings.
+- Automatic examination submission.
+- AI chatbot for students and administrators.
+- Interactive 3D animated login and registration pages.
+- Beautiful, animated student and administrator dashboards.
+- Timed examinations and mock test sessions.
+- Examination reports, marks, analytics, and performance tracking.
+- Automatic session logout after five minutes of inactivity.
+
+**IMPORTANT:** Do not create a static UI, nonfunctional buttons, fake reports, or dummy authentication. Implement real workflows, backend APIs, persistent database storage, server-side validation, and working navigation.
+
+---
+
+# 2. TECHNOLOGY STACK
+
+Use a modern, scalable technology stack.
+
+### Frontend
+- React.js with TypeScript.
+- Next.js where supported.
+- Tailwind CSS.
+- shadcn/ui for polished interface components.
+- Framer Motion / Motion for interactive animations.
+- Three.js or React Three Fiber for 3D graphics.
+- Recharts for dashboards and performance analytics.
+- Lucide React for icons.
+- Responsive layouts for desktop, tablet, and mobile.
+
+### Backend
+- Node.js.
+- Express.js or Next.js server APIs.
+- RESTful APIs.
+- Server-side authentication and authorization.
+- Secure session management.
+- Real-time examination event processing.
+
+### Database and authentication
+Prefer Firebase Authentication, Cloud Firestore, Cloud Storage, and Cloud Functions for a Google-native architecture.
+
+Use secure server-side services when additional functionality is required, such as biometric matching, WebAuthn, or custom proctoring APIs.
+
+### AI integration
+- Gemini API for the intelligent chatbot.
+- MediaPipe Face Landmarker or an equivalent browser-supported model for face landmarks, head-pose estimation, and gaze-direction indicators.
+- Web Audio API for detecting significant background sound levels.
+- MediaDevices API for webcam and microphone access.
+- Screen Capture API for examination screen-sharing.
+- Recharts for reports and visualizations.
+
+Store credentials and API keys securely using environment variables or managed secrets. Never expose sensitive keys to the client.
+
+---
+
+# 3. GLOBAL UI/UX DESIGN
+
+Create an outstanding, premium-quality interface inspired by modern SaaS applications, university examination systems, and enterprise analytics dashboards.
+
+### Visual identity
+
+Use a futuristic but professional design with:
+
+- Deep navy and midnight-blue backgrounds.
+- Electric blue, cyan, and violet accents.
+- Elegant glassmorphism cards.
+- Smooth gradients and subtle ambient glows.
+- Soft shadows and rounded cards.
+- Clean typography using Inter or Poppins.
+- Excellent spacing and visual hierarchy.
+- Interactive charts and progress indicators.
+- Dark mode and light mode.
+- Responsive sidebar navigation.
+- Accessible buttons, menus, and forms.
+
+The application should look like a real commercial examination platform, not a basic college project.
+
+### 3D animated elements
+
+Create a visually impressive animated landing page featuring:
+
+1. A rotating 3D digital globe or abstract neural network.
+2. Floating education and cybersecurity-themed elements.
+3. Animated particles and connecting lines.
+4. Smooth 3D hover effects on login cards.
+5. Animated gradients and transitions.
+6. Interactive mouse-responsive backgrounds.
+7. Smooth page transitions.
+8. Beautiful loading animations.
+9. Animated statistics and dashboard charts.
+10. Optional floating 3D security shield.
+
+Optimize animations for performance, including reduced-motion accessibility and graceful fallbacks for slower devices.
+
+---
+
+# 4. LANDING PAGE
+
+Build a premium landing page.
+
+### Navigation
+- Home
+- Features
+- How It Works
+- Security
+- Student Login
+- Admin Login
+- Register
+- Contact / Help
+
+### Hero section
+
+Display:
+
+**SECURE ONLINE EXAMINATION PORTAL**
+
+"Experience the Future of Secure Online Assessments."
+
+Include two major buttons:
+
+**Get Started as Student**
+
+**Access Admin Portal**
+
+Add an attractive animated 3D background with a futuristic cybersecurity/education theme.
+
+### Feature cards
+
+Display six animated feature cards:
+
+1. AI-Powered Proctoring
+2. Secure Face Verification
+3. Smart Examination Management
+4. Real-Time Activity Monitoring
+5. AI Examination Assistant
+6. Detailed Performance Analytics
+
+Include a professional footer with privacy information, terms, and contact details.
+
+---
+
+# 5. REGISTRATION SYSTEM
+
+Implement separate student and administrator registration experiences.
+
+## Student registration
+
+Collect:
+
+- Full name.
+- Student ID.
+- Email address.
+- Phone number with country code.
+- College or institution name.
+- Department.
+- Course or program.
+- Academic year.
+- Password.
+- Confirm password.
+- Consent to biometric verification and examination monitoring.
+
+### Registration security workflow
+
+**Step 1: Email verification**
+
+Send a real verification email using a configured email provider.
+
+The student must confirm ownership of their email address before account activation.
+
+**Step 2: Mobile number verification**
+
+Send a real one-time password through an SMS verification provider.
+
+Require successful OTP validation.
+
+Implement OTP expiration, attempt limits, cooldowns, and rate limiting.
+
+**Step 3: Face enrollment and verification**
+
+Request permission to access the webcam.
+
+Provide a guided facial enrollment screen with:
+
+- Face-positioning overlay.
+- Face detection.
+- Multiple-face detection.
+- Lighting guidance.
+- Optional liveness challenge, such as head-turning or blinking.
+- Verification success/failure indicators.
+
+With explicit consent, create a protected facial reference for subsequent identity matching.
+
+Store only necessary encrypted biometric templates or references, not raw face images by default. Provide biometric data deletion and consent management.
+
+**Step 4: Account creation**
+
+After required checks succeed, create the student profile in the database.
+
+Show an animated success screen.
+
+Redirect to the student dashboard.
+
+## Administrator registration
+
+Create a separate, secure administrator registration interface.
+
+Collect:
+
+- Full name.
+- Official email.
+- Phone number.
+- Organization name.
+- Employee/administrator ID.
+- Password.
+- Email verification.
+- Phone verification.
+- Face enrollment.
+
+**Security requirement:** Do not allow anyone to grant themselves administrator access through public registration.
+
+Use administrator invitations, verified organization approval, or protected administrator provisioning.
+
+Assign roles only through trusted backend authorization.
+
+---
+
+# 6. LOGIN SYSTEM
+
+Create an advanced 3D animated login page.
+
+Provide separate tabs:
+
+**Student Login | Admin Login**
+
+Display a premium animated background with a floating security shield, particle effects, and glassmorphism login form.
+
+### Login methods
+
+Support:
+
+1. Email and password.
+2. Verified phone-based authentication where configured.
+3. Device Face ID / biometric passkey authentication using WebAuthn on supported devices.
+4. Consented webcam-based face verification, using protected enrollment references and appropriate liveness checks.
+5. Multi-factor authentication where required.
+
+Device Face ID through a passkey and webcam facial matching are different technologies; implement and label them correctly.
+
+Include:
+
+- Forgot password.
+- Reset password.
+- Remember device where appropriate.
+- Show/hide password.
+- Email verification status.
+- Account security status.
+- Login error handling.
+- Rate limiting and temporary lockout.
+- Secure logout.
+
+Never save plaintext passwords or expose user authentication secrets.
+
+---
+
+# 7. STUDENT DASHBOARD
+
+Build a beautiful student dashboard with a collapsible sidebar, animated cards, charts, and an optional subtle 3D background.
+
+### Sidebar navigation
+
+- Dashboard
+- Available Exams
+- Upcoming Exams
+- Mock Test Practice
+- My Results
+- Performance Analytics
+- Exam History
+- Exam Schedule
+- Notifications
+- AI Help Assistant
+- My Profile
+- Security Settings
+- Logout
+
+### Dashboard overview
+
+Display personalized greeting:
+
+**"Welcome Back, [Student Name]!"**
+
+Show animated statistic cards:
+
+- Total Exams Attempted
+- Upcoming Exams
+- Completed Exams
+- Average Score
+- Highest Score
+- Mock Tests Completed
+- Current Performance Level
+
+### Charts and analytics
+
+Include:
+
+- Performance-over-time line chart.
+- Subject-wise marks bar chart.
+- Exam completion doughnut chart.
+- Accuracy percentage chart.
+- Recent examination results.
+- Practice improvement trends.
+
+All displayed information must come from the student's real database records.
+
+Students must only access their own private academic data.
+
+---
+
+# 8. AVAILABLE EXAMINATIONS
+
+Create an examinations listing page.
+
+Each examination card must display:
+
+- Exam title.
+- Subject.
+- Description.
+- Total marks.
+- Number of questions.
+- Duration.
+- Scheduled date.
+- Start and end availability.
+- Passing marks.
+- Allowed attempts.
+- Examination status.
+
+Add buttons:
+
+**View Exam Details**
+
+**Start Examination**
+
+Only show the Start button when the student is eligible.
+
+### Pre-examination instructions
+
+Before beginning an exam, show a detailed rules page.
+
+Explain that the examination may require:
+
+- Webcam access.
+- Microphone access.
+- Screen sharing.
+- Identity confirmation.
+- Face visibility.
+- Head-pose tracking.
+- Gaze-direction monitoring.
+- Activity and tab-switch monitoring.
+
+The application must obtain explicit, informed permissions for the required devices.
+
+Explain what information is analyzed, stored, and visible to administrators.
+
+---
+
+# 9. PRE-EXAMINATION SECURITY VERIFICATION
+
+Before permitting an examination, create an interactive system-readiness screen.
+
+Perform these checks:
+
+**Check 1: Identity Verification**
+
+Verify that the current student matches their enrolled facial identity when this method is enabled.
+
+**Check 2: Camera Check**
+
+Confirm working webcam access and detectable face landmarks.
+
+**Check 3: Microphone Check**
+
+Confirm microphone availability and collect a short ambient sound baseline.
+
+**Check 4: Screen Sharing Check**
+
+Request screen capture through the browser's supported Screen Capture API.
+
+Require the student to share an allowed display source according to examination policy.
+
+**Check 5: Face Position Check**
+
+Confirm the student is visible and reasonably centered.
+
+**Check 6: Network and Browser Check**
+
+Check connectivity, browser compatibility, and required permissions.
+
+**Check 7: Examination Rules**
+
+Display rules and obtain acknowledgment.
+
+Present each check with an animated status indicator.
+
+Only enable **Start Secure Examination** when mandatory checks are completed.
+
+Do not bypass denied permissions or pretend browser APIs can capture information that the operating system does not allow.
+
+---
+
+# 10. AI-POWERED EXAMINATION PROCTORING
+
+Develop a real-time browser-based monitoring system.
+
+Use privacy-conscious local processing where feasible.
+
+### A. Face monitoring
+
+Detect:
+
+- Face absent for a configurable duration.
+- Multiple faces appearing.
+- Face leaving the camera frame.
+- Potential mismatch with verified identity, where supported.
+
+Display live camera preview and monitoring status.
+
+### B. Head posture detection
+
+Estimate head orientation using facial landmarks.
+
+Detect sustained:
+
+- Looking far left.
+- Looking far right.
+- Looking down.
+- Looking away from the screen.
+
+Do not issue violations for normal brief movements.
+
+Use configurable durations and confidence thresholds.
+
+### C. Eye-gaze monitoring
+
+Estimate eye direction from supported facial landmarks.
+
+Detect sustained gaze deviations where technically reliable.
+
+Do not claim perfect eye tracking using a standard webcam.
+
+Avoid flagging every natural eye movement as suspicious.
+
+### D. Background noise monitoring
+
+Use the microphone with permission.
+
+Measure ambient sound intensity and identify sustained abnormal sound levels.
+
+Distinguish between ordinary background noise and potential policy violations where possible.
+
+Do not assume that noise automatically means cheating.
+
+Do not transmit or store raw audio by default.
+
+### E. Screen monitoring
+
+Monitor:
+
+- Screen-sharing stream availability.
+- Screen sharing stopped.
+- Tab visibility changes.
+- Window focus changes.
+- Fullscreen exits, if fullscreen is required.
+- Unsupported or interrupted screen capture.
+
+Use browser-supported APIs and acknowledge their limitations.
+
+### F. Proctoring events
+
+Create a structured event record containing:
+
+- Student ID.
+- Exam attempt ID.
+- Timestamp.
+- Violation type.
+- Detection confidence.
+- Duration.
+- Warning number.
+- Resolution/action.
+
+Store events securely in the database.
+
+### G. Two-warning policy
+
+Implement a configurable violation policy.
+
+**First confirmed violation**
+
+Display:
+
+"Warning 1/2: Suspicious activity detected. Please follow the examination rules."
+
+Show a visible warning banner and log the incident.
+
+**Second confirmed violation**
+
+Display:
+
+"Warning 2/2: This is your final warning. Another confirmed violation will automatically submit your examination."
+
+Store the second warning.
+
+**Third confirmed violation**
+
+Automatically save all answers and submit the examination.
+
+Show:
+
+"Your examination has been automatically submitted after repeated examination-rule violations."
+
+Persist submission status, violation history, and relevant evidence metadata.
+
+**Important accuracy safeguards:**
+
+- Debounce repeated detections.
+- Do not count every video frame as a separate violation.
+- Require sustained and sufficiently confident detections.
+- Avoid counting the same incident repeatedly.
+- Allow administrators to review questionable incidents.
+- Provide an appeals/review mechanism for false positives.
+- Make thresholds and exam policies configurable.
+
+Potentially consequential decisions must be reviewable rather than treating imperfect AI observations as unquestionable proof of cheating.
+
+---
+
+# 11. EXAMINATION INTERFACE
+
+Create a distraction-free and professional examination workspace.
+
+### Header
+
+Display:
+
+- Examination name.
+- Student name.
+- Remaining time.
+- Connection status.
+- Camera status.
+- Proctoring status.
+- Questions attempted.
+- Warning count.
+
+### Examination area
+
+Support:
+
+- Multiple-choice questions.
+- Multiple-select questions.
+- True/false questions.
+- Short-answer questions.
+- Descriptive questions.
+
+### Question navigation
+
+Include:
+
+- Previous Question.
+- Next Question.
+- Mark for Review.
+- Clear Response.
+- Save Answer.
+- Submit Examination.
+
+Include a numbered question palette with distinct statuses:
+
+- Answered.
+- Not answered.
+- Marked for review.
+- Not visited.
+
+### Examination timer
+
+Use a server-authoritative examination end time.
+
+Display a live countdown.
+
+Warn students when:
+
+- Ten minutes remain.
+- Five minutes remain.
+- One minute remains.
+
+Automatically submit saved answers when the examination time expires.
+
+### Autosave functionality
+
+Save responses automatically after changes and periodically during the examination.
+
+Restore answers safely after temporary connectivity problems, subject to examination rules.
+
+### Final submission
+
+Display a confirmation dialog on manual submission.
+
+After submission:
+
+- Lock responses.
+- Record submission time.
+- Save final responses.
+- Trigger objective-question evaluation.
+- Generate a submission receipt.
+- Update the dashboard.
+
+---
+
+# 12. AUTOMATIC LOGOUT AFTER FIVE MINUTES
+
+Implement real inactivity detection.
+
+If a user does not interact with the application for five minutes:
+
+- Automatically invalidate the authenticated session.
+- Redirect to login.
+- Require authentication before returning.
+- Clear sensitive client-side session state.
+- Record the logout event.
+
+Display an inactivity warning after four minutes:
+
+**"Your session will expire in 60 seconds due to inactivity."**
+
+Show an option to stay signed in.
+
+Use both client-side activity detection and backend-enforced session expiration.
+
+### During an active examination
+
+Do not lose answers.
+
+Autosave the examination state before forced logout.
+
+Record that the attempt was interrupted.
+
+Continue enforcing the server-side examination deadline.
+
+Allow resumption only where examination policy explicitly permits it.
+
+Do not reset proctoring warnings or extend the examination timer after reauthentication.
+
+---
+
+# 13. MOCK TEST PRACTICE MODULE
+
+Build a complete student practice environment.
+
+Students should be able to select:
+
+- Subject.
+- Topic.
+- Difficulty level.
+- Number of questions.
+- Practice duration.
+- Timed or untimed mode.
+
+### Practice modes
+
+**Quick Practice**
+
+Ten questions for basic revision.
+
+**Timed Mock Test**
+
+Twenty-five questions with a configurable timer.
+
+**Full-Length Mock Examination**
+
+A realistic test with exam-style timing.
+
+**Custom Practice**
+
+Let students choose their own topic, difficulty, duration, and question count.
+
+### After practice
+
+Show:
+
+- Total score.
+- Correct answers.
+- Incorrect answers.
+- Unanswered questions.
+- Accuracy percentage.
+- Time consumed.
+- Topic-wise performance.
+- Correct answer explanations.
+- Recommended improvement areas.
+
+Save every completed practice attempt in the database.
+
+Display progress trends across sessions.
+
+Practice mode should clearly distinguish itself from formally proctored examinations.
+
+---
+
+# 14. STUDENT RESULTS AND REPORTS
+
+Create a dedicated results dashboard.
+
+Display:
+
+- Examination title.
+- Examination date.
+- Total marks.
+- Obtained marks.
+- Percentage.
+- Pass/fail status.
+- Total attempted questions.
+- Correct responses.
+- Incorrect responses.
+- Time taken.
+- Final submission status.
+
+Provide:
+
+**View Detailed Report**
+
+**Download PDF Report**
+
+**View Performance Analytics**
+
+Use server-authorized report generation.
+
+Show a polished, printable scorecard with the student's details, examination information, and performance summary.
+
+Do not reveal correct answers for an examination until the administrator enables answer disclosure.
+
+---
+
+# 15. ADMINISTRATOR DASHBOARD
+
+Create a separate premium dashboard for administrators.
+
+Use an enterprise-style UI with animated statistics and interactive charts.
+
+### Sidebar
+
+- Admin Overview
+- Manage Students
+- Create Examination
+- Manage Examinations
+- Question Bank
+- Examination Schedule
+- Active Exam Sessions
+- Proctoring Alerts
+- Student Results
+- Reports and Analytics
+- Mock Test Management
+- AI Admin Assistant
+- Notifications
+- System Settings
+- Profile
+- Logout
+
+### Administrator overview
+
+Display cards for:
+
+- Total Registered Students.
+- Active Students.
+- Total Examinations.
+- Ongoing Examinations.
+- Completed Examinations.
+- Pending Evaluations.
+- Proctoring Incidents.
+- Average Examination Score.
+
+Use charts for:
+
+- Students' examination performance.
+- Pass/fail distribution.
+- Examination participation.
+- Subject-wise results.
+- Recent activity.
+- Violation trends.
+
+Use actual authorized backend data.
+
+---
+
+# 16. ADMIN STUDENT MANAGEMENT
+
+Allow administrators to:
+
+- View students belonging to their institution.
+- Search students by name, ID, or email.
+- Filter students by department and course.
+- View registration and verification status.
+- View student examination history.
+- Review student results.
+- Suspend or reactivate accounts.
+- Assign examinations to students.
+- Export permitted examination reports.
+
+Protect personal information using role-based access control.
+
+Do not expose facial biometric templates, passwords, or private authentication credentials to administrators.
+
+---
+
+# 17. ADMIN EXAMINATION CREATION
+
+Implement a fully working examination builder.
+
+Administrators must be able to create, edit, schedule, publish, and archive examinations.
+
+### Examination creation form
+
+Include:
+
+- Examination title.
+- Subject.
+- Description.
+- Instructions.
+- Duration.
+- Total marks.
+- Passing marks.
+- Start date/time.
+- End date/time.
+- Maximum attempts.
+- Question randomization.
+- Option randomization.
+- Negative marking configuration.
+- Results publication policy.
+- Answer disclosure policy.
+- Proctoring enable/disable option.
+- Proctoring sensitivity and violation policy.
+
+### Question creation
+
+Allow:
+
+- Manual question creation.
+- Question editing.
+- Question deletion.
+- Bulk question import.
+- Question categorization by subject, topic, and difficulty.
+
+Supported question types:
+
+- Single-answer MCQ.
+- Multiple-answer MCQ.
+- True/False.
+- Short Answer.
+- Descriptive Answer.
+
+Support rich text where appropriate.
+
+Objective questions should be evaluated automatically.
+
+Descriptive responses should support manual administrator evaluation, with optional AI assistance that requires human verification.
+
+---
+
+# 18. ADMIN LIVE EXAM MONITORING
+
+Create a real-time monitoring interface.
+
+Display authorized ongoing examination sessions with:
+
+- Student name and ID.
+- Examination name.
+- Start time.
+- Remaining time.
+- Current examination status.
+- Camera connection status.
+- Microphone status.
+- Screen-sharing status.
+- Proctoring warning count.
+- Latest detected incident.
+- Submission status.
+
+### Proctoring alerts panel
+
+Show categorized events:
+
+- Face absent.
+- Multiple faces.
+- Sustained gaze deviation.
+- Significant head-pose deviation.
+- Excessive background noise.
+- Tab switch.
+- Screen-sharing interruption.
+- Fullscreen exit.
+- Automatic submission.
+
+Allow administrators to inspect timestamps, event details, permitted evidence, and decisions.
+
+Live camera/screen viewing should only be available when clearly disclosed, explicitly consented to, technically implemented, and authorized under the institution's privacy policy.
+
+Provide incident review, correction, and appeal-handling functionality.
+
+---
+
+# 19. ADMIN RESULTS AND ANALYTICS
+
+Build a complete examination reporting module.
+
+Allow administrators to view:
+
+- Individual student results.
+- Examination-wise results.
+- Department-wise performance.
+- Subject-wise performance.
+- Highest and lowest marks.
+- Average examination marks.
+- Pass/fail percentages.
+- Completion rates.
+- Time taken.
+- Proctoring incidents.
+- Submission reasons.
+
+Include:
+
+- Search and filtering.
+- Sort by score.
+- Date-based filters.
+- Student-specific reports.
+- Download PDF.
+- Export CSV.
+- Report printing.
+
+Use interactive bar charts, line graphs, and doughnut charts.
+
+Reports must use real database records.
+
+---
+
+# 20. AI CHATBOT FOR STUDENTS AND ADMINS
+
+Implement a functional AI assistant powered by the Gemini API.
+
+Name the chatbot:
+
+**SecureExam AI Assistant**
+
+Design it as a floating chatbot in the bottom-right corner with:
+
+- Animated chatbot icon.
+- Expandable conversation window.
+- Chat history.
+- Typing indicator.
+- Suggested questions.
+- Clear chat option.
+- Attractive conversational UI.
+- Mobile-friendly design.
+
+### Student chatbot capabilities
+
+Help students with:
+
+- Registration and login.
+- Email and phone verification.
+- Face verification guidance.
+- Upcoming examination information.
+- Examination instructions.
+- Mock test preparation.
+- Navigation guidance.
+- Understanding published results.
+- Technical troubleshooting.
+- Password recovery instructions.
+- Study tips.
+
+Example:
+
+Student: "When is my next exam?"
+
+Assistant: Retrieve the authenticated student's upcoming examination schedule and answer accurately.
+
+Student: "How do I start a mock test?"
+
+Assistant: Explain the practice workflow and relevant navigation.
+
+### Admin chatbot capabilities
+
+Help administrators with:
+
+- Examination creation.
+- Question management.
+- Student management.
+- Examination schedules.
+- Report generation.
+- Result analysis.
+- Proctoring alert explanations.
+- Technical support.
+- Dashboard navigation.
+
+Example:
+
+Admin: "How many students completed today's exam?"
+
+Assistant: Retrieve authorized database statistics and provide the actual count.
+
+### Chatbot security
+
+Use secure server-side Gemini API calls.
+
+The chatbot must respect student/admin role boundaries.
+
+Never reveal other students' private information to a student.
+
+Never expose hidden answer keys for active examinations.
+
+Do not let the chatbot provide answers to questions during a formal examination.
+
+Disable academic-answer assistance while a proctored exam is active.
+
+Store chat history securely when enabled and disclose retention rules.
+
+---
+
+# 21. DATABASE STRUCTURE
+
+Build a real persistent database with the following logical collections or equivalent relational tables.
+
+### Users
+- userId
+- fullName
+- email
+- phone
+- role
+- institutionId
+- department
+- studentId or adminId
+- authenticationProviderIds
+- emailVerified
+- phoneVerified
+- faceEnrollmentStatus
+- accountStatus
+- createdAt
+- updatedAt
+
+### BiometricEnrollments
+- enrollmentId
+- userId
+- encryptedTemplateReference
+- consentTimestamp
+- verificationMethod
+- status
+- createdAt
+
+Restrict this collection to trusted verification services.
+
+### Exams
+- examId
+- title
+- subject
+- description
+- instructions
+- duration
+- totalMarks
+- passingMarks
+- startTime
+- endTime
+- allowedAttempts
+- proctoringPolicy
+- resultPublicationPolicy
+- createdBy
+- status
+
+### Questions
+- questionId
+- examId
+- questionText
+- questionType
+- options
+- correctAnswerReference
+- marks
+- difficulty
+
+Keep answer keys inaccessible to student clients.
+
+### ExamAttempts
+- attemptId
+- examId
+- studentId
+- startTime
+- deadline
+- submissionTime
+- status
+- warningCount
+- submissionReason
+
+### StudentAnswers
+- answerId
+- attemptId
+- questionId
+- selectedOrWrittenAnswer
+- savedAt
+
+### ProctoringEvents
+- eventId
+- attemptId
+- studentId
+- eventType
+- timestamp
+- duration
+- confidence
+- warningNumber
+- actionTaken
+- reviewStatus
+
+### Results
+- resultId
+- attemptId
+- studentId
+- examId
+- obtainedMarks
+- totalMarks
+- percentage
+- grade
+- passStatus
+- evaluatedAt
+- publishedAt
+
+### MockTests
+- mockTestId
+- studentId
+- subject
+- difficulty
+- duration
+- score
+- accuracy
+- completedAt
+
+### ChatMessages
+- messageId
+- userId
+- role
+- message
+- response
+- timestamp
+
+### Notifications
+- notificationId
+- recipientId
+- title
+- message
+- type
+- isRead
+- createdAt
+
+### AuditLogs
+- logId
+- actorId
+- action
+- targetId
+- timestamp
+- eventMetadata
+
+Create appropriate indexes and access-control rules.
+
+All important changes must persist and remain available after page refresh and login.
+
+---
+
+# 22. CYBERSECURITY REQUIREMENTS
+
+Implement strong security practices.
+
+Include:
+
+1. HTTPS-based communication.
+2. Secure password handling through the authentication provider.
+3. Role-based access control.
+4. Server-side authorization on every protected resource.
+5. Proper input validation.
+6. Protection against common XSS, CSRF, injection, and insecure direct object reference vulnerabilities.
+7. Secure session cookies where applicable.
+8. Account lockout and request rate limiting.
+9. Short-lived verification codes.
+10. Multi-factor authentication.
+11. Encrypted sensitive data.
+12. Protected biometric references.
+13. Secure API key management.
+14. Comprehensive audit logging.
+15. Proper logout and session invalidation.
+16. Access-controlled report downloads.
+17. Examination deadline and submission enforcement on the server.
+18. Secure answer key storage.
+19. Institution-level data isolation.
+20. Biometric and proctoring data retention/deletion controls.
+
+Explicitly disclose examination monitoring and request necessary consent.
+
+Never store raw passwords, OTPs, or unrestricted biometric images in the database.
+
+---
+
+# 23. ADDITIONAL USER EXPERIENCE FEATURES
+
+Include:
+
+- Real-time notification center.
+- Loading skeletons.
+- Animated success messages.
+- Professional toast notifications.
+- Form validation.
+- Search and filtering.
+- Breadcrumb navigation.
+- Profile photo/avatar.
+- Account settings.
+- Password recovery.
+- Keyboard-accessible navigation.
+- Dark/light mode toggle.
+- Responsive dashboards.
+- Helpful error messages.
+- Empty-state illustrations.
+- Network reconnection indicators.
+- Accessible charts.
+- Confirmation dialogs for critical actions.
+
+Use consistent design across every page.
+
+---
+
+# 24. REQUIRED APPLICATION ROUTES
+
+Implement all required screens with functional routing.
+
+### Public routes
+
+- `/`
+- `/register`
+- `/register/student`
+- `/register/admin`
+- `/login`
+- `/login/student`
+- `/login/admin`
+- `/verify-email`
+- `/verify-phone`
+- `/face-verification`
+- `/forgot-password`
+
+### Student routes
+
+- `/student/dashboard`
+- `/student/exams`
+- `/student/exams/[id]`
+- `/student/exam-instructions/[id]`
+- `/student/system-check/[id]`
+- `/student/exam-session/[attemptId]`
+- `/student/mock-tests`
+- `/student/mock-tests/[id]`
+- `/student/results`
+- `/student/results/[id]`
+- `/student/analytics`
+- `/student/history`
+- `/student/chatbot`
+- `/student/profile`
+- `/student/settings`
+
+### Admin routes
+
+- `/admin/dashboard`
+- `/admin/students`
+- `/admin/exams`
+- `/admin/exams/create`
+- `/admin/exams/[id]/edit`
+- `/admin/question-bank`
+- `/admin/live-monitoring`
+- `/admin/proctoring-alerts`
+- `/admin/results`
+- `/admin/reports`
+- `/admin/analytics`
+- `/admin/chatbot`
+- `/admin/profile`
+- `/admin/settings`
+
+All private routes must be protected by backend-enforced role permissions.
+
+---
+
+# 25. COMPLETE APPLICATION WORKFLOWS
+
+Ensure these end-to-end workflows function correctly.
+
+### Student workflow
+
+Landing Page → Student Registration → Email Verification → Phone OTP Verification → Face Enrollment → Account Created → Login → Identity Verification → Student Dashboard → View Available Exams → Read Instructions → Camera/Microphone/Screen Check → Start Exam → Answer Questions → Autosave → Submit → View Published Result → Download Report.
+
+### Administrator workflow
+
+Authorized Admin Registration → Identity Verification → Admin Login → Admin Dashboard → Create Exam → Add Questions → Configure Monitoring Rules → Schedule Exam → Assign Students → Monitor Exam Attempts → Review Violations → Evaluate Responses → Publish Results → Generate Reports.
+
+### Mock test workflow
+
+Student Dashboard → Mock Tests → Choose Subject → Select Difficulty → Set Timer → Start Practice → Answer Questions → Automatic Timer Completion → Calculate Score → Review Answers → View Practice Analytics.
+
+### Violation workflow
+
+Start Exam → Monitor Authorized Signals → Detect Sustained High-Confidence Violation → Warning 1 → Second Separate Confirmed Violation → Warning 2 → Third Confirmed Violation → Autosave → Auto-Submit → Log Incident → Administrator Review.
+
+---
+
+# 26. TESTING REQUIREMENTS
+
+Provide automated tests for:
+
+- Student registration.
+- Admin invitation and registration.
+- Email verification.
+- Phone OTP verification.
+- Authentication and authorization.
+- Face verification failure handling.
+- Exam creation.
+- Question CRUD.
+- Student exam eligibility.
+- Exam timer.
+- Answer autosaving.
+- Submission.
+- Objective grading.
+- Two-warning workflow.
+- Third-violation automatic submission.
+- Five-minute inactivity logout.
+- Student data isolation.
+- Report generation.
+- Chatbot authorization.
+- Permission denial and network failures.
+
+Use mock services only inside clearly identified automated tests.
+
+Never represent simulated proctoring or verification as production functionality.
+
+---
+
+# 27. DEVELOPMENT AND DELIVERY REQUIREMENTS
+
+Build the application as an integrated, working product.
+
+### Phase 1 — Application foundation
+
+Create the project structure, UI design system, responsive layouts, routing, and animated landing/login pages.
+
+### Phase 2 — Authentication and persistence
+
+Implement database collections, authentication, role provisioning, email/phone verification, and supported biometric methods.
+
+### Phase 3 — Student features
+
+Implement the student dashboard, examination discovery, examination interface, mock tests, results, and analytics.
+
+### Phase 4 — Administrator features
+
+Implement examination creation, question bank, student management, monitoring, results, and reporting.
+
+### Phase 5 — AI and security
+
+Implement the chatbot, browser-based proctoring, warning engine, automatic submission, session expiration, audit logs, and privacy controls.
+
+### Phase 6 — Testing and final polish
+
+Integrate everything, fix broken functionality, verify database persistence, optimize performance, and finalize animations.
+
+### Deliverables
+
+Generate:
+
+1. Complete source code.
+2. Frontend and backend implementation.
+3. Database schema and access rules.
+4. Authentication configuration.
+5. Functional Gemini chatbot integration.
+6. Proctoring modules and rule engine.
+7. Responsive and animated UI components.
+8. `.env.example` with required variable names.
+9. Setup and installation instructions.
+10. Deployment instructions.
+11. Testing instructions and test cases.
+12. Project README.
+13. System architecture diagram in Mermaid.
+14. Detailed API endpoint documentation.
+
+Where external credentials, paid services, hardware support, or manual configuration are necessary, clearly identify the dependency and provide exact setup instructions.
+
+---
+
+# 28. FINAL QUALITY EXPECTATIONS
+
+The final result must resemble a real premium SaaS application.
+
+Prioritize:
+
+**UI Quality:** Polished, futuristic, visually impressive, professional, and responsive.
+
+**UX Quality:** Intuitive navigation, seamless workflows, accessible design, and clear feedback.
+
+**Security:** Strong authentication, authorized data access, privacy protection, and secure examination management.
+
+**Functionality:** Working backend, persistent database, realistic exam engine, verified submission logic, and functional admin tools.
+
+**AI Integration:** Useful Gemini chatbot and realistically implemented browser-based proctoring.
+
+**Reliability:** Autosaving, error handling, recovery paths, and properly enforced session and exam deadlines.
+
+**3D Visuals:** Beautiful animated authentication screens and elegant, performance-conscious dashboard interactions.
+
+**IMPORTANT FINAL INSTRUCTIONS:**
+
+- Build the actual application, not merely a project explanation.
+- Do not replace required functionality with static sample pages.
+- Do not create buttons that perform no action.
+- Connect authentication, dashboards, exams, results, and reports to the database.
+- Implement reliable backend authorization and validation.
+- Do not claim unsupported browser monitoring capabilities.
+- Do not fabricate actual security verification.
+- Clearly distinguish real implementations from integrations requiring configuration.
+- Follow the implementation phases until the full end-to-end system is complete.
+- Make the application suitable for a final-year engineering project demonstration, technical review, portfolio presentation, and future production hardening.
+
+**Begin by designing and implementing the complete Secure Online Examination Portal application.**
