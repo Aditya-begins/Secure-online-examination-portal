@@ -1,5 +1,6 @@
 import { User, Exam, Question, ExamAttempt, ProctoringEvent, MockTest, AuditLog, NotificationItem } from '../types';
 import { calculateExamScore } from '../lib/exam-rules';
+import { syncUserToFirestore, syncExamToFirestore, syncAttemptToFirestore, logAuditToFirestore } from '../lib/firebase';
 
 const STORAGE_KEYS = {
   USERS: 'secure_exam_users',
@@ -587,25 +588,29 @@ class StoreService {
   public saveUser(user: User): void {
     const users = this.getUsers();
     const idx = users.findIndex(u => u.userId === user.userId);
+    const updatedUser = { ...user, updatedAt: new Date().toISOString() };
     if (idx >= 0) {
-      users[idx] = { ...user, updatedAt: new Date().toISOString() };
+      users[idx] = updatedUser;
     } else {
-      users.push(user);
+      users.push(updatedUser);
     }
     this.set(STORAGE_KEYS.USERS, users);
+    syncUserToFirestore(updatedUser);
   }
 
   public updateUser(userId: string, updates: Partial<User>): User | undefined {
     const users = this.getUsers();
     const idx = users.findIndex(u => u.userId === userId);
     if (idx >= 0) {
-      users[idx] = { ...users[idx], ...updates, updatedAt: new Date().toISOString() };
+      const updated = { ...users[idx], ...updates, updatedAt: new Date().toISOString() };
+      users[idx] = updated;
       this.set(STORAGE_KEYS.USERS, users);
       // update current user if matching
       const current = this.getCurrentUser();
       if (current && current.userId === userId) {
         this.setCurrentUser(users[idx]);
       }
+      syncUserToFirestore(updated);
       return users[idx];
     }
     return undefined;
@@ -634,6 +639,7 @@ class StoreService {
       exams.push(exam);
     }
     this.set(STORAGE_KEYS.EXAMS, exams);
+    syncExamToFirestore(exam);
   }
 
   public deleteExam(examId: string): void {
@@ -724,6 +730,7 @@ class StoreService {
     const attempts = this.getAttempts();
     attempts.push(attempt);
     this.set(STORAGE_KEYS.ATTEMPTS, attempts);
+    syncAttemptToFirestore(attempt);
 
     this.logAuditEvent({
       actorId: student.userId,
@@ -779,6 +786,7 @@ class StoreService {
 
       attempts[idx] = att;
       this.set(STORAGE_KEYS.ATTEMPTS, attempts);
+      syncAttemptToFirestore(att);
 
       this.logAuditEvent({
         actorId: att.studentId,
@@ -897,12 +905,14 @@ class StoreService {
 
   public logAuditEvent(log: Omit<AuditLog, 'logId' | 'timestamp'>): void {
     const logs = this.getAuditLogs();
-    logs.unshift({
+    const entry = {
       ...log,
       logId: `log_${Date.now()}`,
       timestamp: new Date().toISOString(),
-    });
+    };
+    logs.unshift(entry);
     this.set(STORAGE_KEYS.AUDIT_LOGS, logs);
+    logAuditToFirestore(entry);
   }
 
   // Reset helper

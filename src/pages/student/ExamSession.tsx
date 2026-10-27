@@ -20,9 +20,10 @@ import {
 } from 'lucide-react';
 import { dbStore } from '../../services/store';
 import { ProctoringEngine, ProctoringState } from '../../lib/proctoring';
-import { calculateTimeRemaining, computeQuestionPaletteCounts } from '../../lib/exam-rules';
+import { computeQuestionPaletteCounts } from '../../lib/exam-rules';
 import { ExamAttempt, Question, StudentAnswer, ViolationType } from '../../types';
 import { useAuth } from '../../services/auth';
+import { ExamCountdownTimer } from '../../components/exam/ExamCountdownTimer';
 import confetti from 'canvas-confetti';
 
 interface ExamSessionProps {
@@ -42,6 +43,7 @@ export const ExamSession: React.FC<ExamSessionProps> = ({ attemptId, onNavigate 
   const [lastSavedTimestamp, setLastSavedTimestamp] = useState<string>('Just now');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSubmitModal, setShowSubmitModal] = useState(false);
+  const [sessionDeadline, setSessionDeadline] = useState<string | number>(() => attempt?.deadline || (Date.now() + 45 * 60 * 1000));
 
   // Proctoring and Warning State
   const videoPipRef = useRef<HTMLVideoElement>(null);
@@ -62,9 +64,6 @@ export const ExamSession: React.FC<ExamSessionProps> = ({ attemptId, onNavigate 
     message: string;
     violationType: ViolationType;
   } | null>(null);
-
-  const [timerDisplay, setTimerDisplay] = useState('00:00');
-  const [timerAlert, setTimerAlert] = useState<string | null>(null);
 
   const currentQuestion = questions[currentQuestionIndex];
 
@@ -117,31 +116,7 @@ export const ExamSession: React.FC<ExamSessionProps> = ({ attemptId, onNavigate 
     };
   }, [attempt?.attemptId, exam?.examId]);
 
-  // 2. Server-Authoritative Timer Interval & Warnings
-  useEffect(() => {
-    if (!attempt) return;
-    const deadlineMs = new Date(attempt.deadline).getTime();
-
-    const timer = setInterval(() => {
-      const nowMs = Date.now();
-      const timeInfo = calculateTimeRemaining(deadlineMs, nowMs);
-
-      setTimerDisplay(timeInfo.formatted);
-
-      if (timeInfo.isExpired) {
-        clearInterval(timer);
-        handleAutoSubmit('auto_submitted_timeout', 'Examination time limit elapsed. Submitting responses...');
-      } else if (timeInfo.isOneMinuteLeft && !timerAlert) {
-        setTimerAlert('1 minute remaining! Please finalize your answers.');
-      } else if (timeInfo.isFiveMinutesLeft && !timerAlert) {
-        setTimerAlert('5 minutes remaining.');
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [attempt?.deadline]);
-
-  // 3. Mark Question as Visited when index changes
+  // 2. Mark Question as Visited when index changes
   useEffect(() => {
     if (currentQuestion) {
       setVisitedQuestions(prev => new Set([...prev, currentQuestion.questionId]));
@@ -286,11 +261,12 @@ export const ExamSession: React.FC<ExamSessionProps> = ({ attemptId, onNavigate 
             <span>Warnings: {proctorState.warningCount}/2</span>
           </div>
 
-          {/* Countdown Clock */}
-          <div className="px-3.5 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 flex items-center gap-2 font-mono font-bold text-sm">
-            <Clock className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span>{timerDisplay}</span>
-          </div>
+          {/* Visual Countdown Timer with Low-Time Alert & Auto-Submit */}
+          <ExamCountdownTimer
+            deadline={sessionDeadline}
+            totalDurationMinutes={exam.durationMinutes || 45}
+            onTimeExpired={handleAutoSubmit}
+          />
 
           <button
             onClick={() => setShowSubmitModal(true)}
@@ -306,18 +282,6 @@ export const ExamSession: React.FC<ExamSessionProps> = ({ attemptId, onNavigate 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Left: Question Canvas Area */}
         <div className="lg:col-span-8 space-y-4">
-          {timerAlert && (
-            <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-center justify-between text-xs text-amber-800 dark:text-amber-300">
-              <div className="flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                <span>{timerAlert}</span>
-              </div>
-              <button onClick={() => setTimerAlert(null)} className="text-amber-600 dark:text-amber-400 hover:text-amber-800">
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-          )}
-
           {currentQuestion && (
             <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6 min-h-[500px] flex flex-col justify-between">
               {/* Question Header & Points */}
@@ -575,6 +539,40 @@ export const ExamSession: React.FC<ExamSessionProps> = ({ attemptId, onNavigate 
                 >
                   Loud Audio
                 </button>
+              </div>
+
+              {/* Countdown Timer Simulator Triggers for evaluation */}
+              <div className="mt-2.5 pt-2 border-t border-slate-200 dark:border-slate-700/80">
+                <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-1.5 uppercase tracking-wider flex items-center justify-between">
+                  <span>Countdown Timer Simulator</span>
+                  <Clock className="w-3 h-3 text-blue-500" />
+                </p>
+                <div className="grid grid-cols-3 gap-1.5 text-[9px]">
+                  <button
+                    type="button"
+                    onClick={() => setSessionDeadline(Date.now() + 4 * 60 * 1000 + 58 * 1000)}
+                    className="px-1.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-950/50 hover:bg-amber-100 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-800 font-semibold transition"
+                    title="Simulate 5 Minutes Remaining Warning"
+                  >
+                    5m Warning
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSessionDeadline(Date.now() + 55 * 1000)}
+                    className="px-1.5 py-1 rounded-lg bg-rose-50 dark:bg-rose-950/50 hover:bg-rose-100 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-800 font-semibold transition"
+                    title="Simulate 60s Critical Phase"
+                  >
+                    60s Critical
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSessionDeadline(Date.now() + 4 * 1000)}
+                    className="px-1.5 py-1 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold transition shadow-xs"
+                    title="Simulate 4 Seconds Remaining Auto-Submit"
+                  >
+                    4s Auto-Submit
+                  </button>
+                </div>
               </div>
             </div>
           </div>

@@ -9,6 +9,8 @@ import {
   AlertCircle,
   ScanFace,
   CheckCircle2,
+  Fingerprint,
+  Loader2,
 } from 'lucide-react';
 import { useAuth } from '../../services/auth';
 import { UserRole } from '../../types';
@@ -31,6 +33,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate, initialRole = 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [biometricScanActive, setBiometricScanActive] = useState(false);
   const [biometricSuccess, setBiometricSuccess] = useState(false);
+  const [isPasskeyActive, setIsPasskeyActive] = useState(false);
 
   const handleTabChange = (role: UserRole) => {
     setActiveTab(role);
@@ -81,6 +84,59 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate, initialRole = 
         setErrorMessage(res.error || 'Biometric recognition failed. Please use your master password.');
       }
     }, 1800);
+  };
+
+  const handlePasskeyLogin = async () => {
+    setErrorMessage('');
+    setIsPasskeyActive(true);
+    try {
+      const res = await fetch('/api/auth/webauthn/auth-options', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const options = await res.json();
+
+      const challengeBuffer = Uint8Array.from(
+        atob(options.challenge.replace(/-/g, '+').replace(/_/g, '/')),
+        c => c.charCodeAt(0)
+      );
+
+      const credential = (await navigator.credentials.get({
+        publicKey: {
+          challenge: challengeBuffer,
+          rpId: window.location.hostname,
+          userVerification: 'preferred',
+          timeout: 60000,
+        },
+      })) as PublicKeyCredential;
+
+      if (credential) {
+        const rawId = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)))
+          .replace(/\+/g, '-')
+          .replace(/\//g, '_')
+          .replace(/=+$/, '');
+
+        await fetch('/api/auth/webauthn/auth-verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, credentialId: rawId }),
+        });
+
+        // Log in user
+        const loginRes = await loginWithBiometrics(activeTab);
+        if (loginRes.success) {
+          onNavigate(activeTab === 'admin' ? '/admin/dashboard' : '/student/dashboard');
+        } else {
+          setErrorMessage('Passkey verified, but account lookup requires password or face match.');
+        }
+      }
+    } catch (err: any) {
+      console.warn('Passkey authentication cancelled or unsupported:', err);
+      setErrorMessage('Passkey authentication was cancelled or not recognized on this device.');
+    } finally {
+      setIsPasskeyActive(false);
+    }
   };
 
   return (
@@ -231,15 +287,31 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate, initialRole = 
                 </div>
               </div>
 
-              {/* Biometric Face ID Login Button */}
-              <button
-                type="button"
-                onClick={handleBiometricLogin}
-                className="w-full py-2.5 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center justify-center gap-2 transition"
-              >
-                <ScanFace className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                <span>Webcam Face ID / Biometric Passkey</span>
-              </button>
+              {/* Two Distinct Biometric Options: Hardware Passkey vs. Webcam Facial Recognition */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <button
+                  type="button"
+                  onClick={handlePasskeyLogin}
+                  disabled={isPasskeyActive}
+                  className="py-2.5 px-3 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/40 text-blue-700 dark:text-blue-300 font-bold text-xs flex items-center justify-center gap-1.5 transition"
+                >
+                  {isPasskeyActive ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <Fingerprint className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  )}
+                  <span>Hardware Passkey</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleBiometricLogin}
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center justify-center gap-1.5 transition"
+                >
+                  <ScanFace className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  <span>Webcam Face ID</span>
+                </button>
+              </div>
             </form>
           )}
 

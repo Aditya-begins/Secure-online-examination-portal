@@ -1,0 +1,1054 @@
+{
+  "pendingRegistrations": {
+    "preg_1793121650346_44164fcb687e": {
+      "id": "preg_1793121650346_44164fcb687e",
+      "fullName": "Test Candidate",
+      "email": "test.candidate@university.edu",
+      "phone": "+15551234567",
+      "passwordHash": "2b5dedbca4ba03899db29847527540c99633508d30301359d625d67207a70aaa",
+      "studentId": "STU-TEST-001",
+      "role": "student",
+      "emailVerified": false,
+      "phoneVerified": false,
+      "createdAt": 1793121650346,
+      "lastEmailOtpSentAt": 1793121650347,
+      "lastPhoneOtpSentAt": 0
+    },
+    "preg_1793121650354_49d63fdbbc17": {
+      "id": "preg_1793121650354_49d63fdbbc17",
+      "fullName": "Jordan Lee",
+      "email": "jordan.lee@university.edu",
+      "phone": "+15559876543",
+      "passwordHash": "39b59c5b6cd7b4140598de8e205534f6c5ff7f81daf38837c526dbdc5933c425",
+      "role": "student",
+      "emailVerified": true,
+      "phoneVerified": false,
+      "createdAt": 1793121650354,
+      "lastEmailOtpSentAt": 1793121650354,
+      "lastPhoneOtpSentAt": 0
+    }
+  },
+  "otps": {
+    "otp_1793118014372_9aa43693": {
+      "id": "otp_1793118014372_9aa43693",
+      "pendingRegistrationId": "preg_1793118014371_cb5dc3fecb4f",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "73e8a12ebc5bf8ef436322b889b1b2eb6061f7d7707836f73cf05434bf42b971",
+      "expiresAt": 1793118314372,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793118014372
+    },
+    "otp_1793118014374_4cb26b46": {
+      "id": "otp_1793118014374_4cb26b46",
+      "pendingRegistrationId": "preg_1793118014374_53479f414313",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "3836d8948023b43466e4de708942fdf467bd0718f9444242d5cd956d934c82d7",
+      "expiresAt": 1793118314374,
+      "attempts": 1,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793118014374
+    },
+    "otp_1793118071748_e18905fe": {
+      "id": "otp_1793118071748_e18905fe",
+      "pendingRegistrationId": "preg_1793118071747_df677c92c7c7",
+      "target": "elena.test@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "73d5b715ced5823132297470096a74d89366ce661a291bbb8e0bc82a30f35080",
+      "expiresAt": 1793118371748,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793118071748
+    },
+    "otp_1793118141248_1258dd18": {
+      "id": "otp_1793118141248_1258dd18",
+      "pendingRegistrationId": "preg_1793118071747_df677c92c7c7",
+      "target": "+15551234567",
+      "verificationType": "phone",
+      "hashedOtp": "0476b1169233c785db3ade5d497ce31b7458e5b0444d89c080665bc28fbe54fb",
+      "expiresAt": 1793118441248,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793118141248
+    },
+    "otp_1793118394248_09395987": {
+      "id": "otp_1793118394248_09395987",
+      "pendingRegistrationId": "preg_1793118394247_7068fcb1900c",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "a92158a00246bf240d21a6a689d414cb31a1345c94761425b28be3c5ac09029c",
+      "expiresAt": 1793118694248,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793118394248
+    },
+    "otp_1793118394251_b1e95a41": {
+      "id": "otp_1793118394251_b1e95a41",
+      "pendingRegistrationId": "preg_1793118394251_37d739e99038",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "6e163a5f103070935fb426308e3018246c408ed96259d1939a92e6a45dc7bf9d",
+      "expiresAt": 1793118694251,
+      "attempts": 1,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793118394251
+    },
+    "otp_1793119641102_095e6abf": {
+      "id": "otp_1793119641102_095e6abf",
+      "pendingRegistrationId": "preg_1793119641101_438223efe2c1",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "53118eeb294bca1dce9314251724640af15ada2057c56195b572de7f75b519c4",
+      "expiresAt": 1793119941102,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793119641102
+    },
+    "otp_1793119641107_8a13179c": {
+      "id": "otp_1793119641107_8a13179c",
+      "pendingRegistrationId": "preg_1793119641106_a1ef40c7a3fa",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "5bf3ea07b1d846213e9f057df617f77025d98f2d8f8b479228f88ed91106f3a4",
+      "expiresAt": 1793119941107,
+      "attempts": 1,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793119641107
+    },
+    "otp_1793120204970_3bcc2e43": {
+      "id": "otp_1793120204970_3bcc2e43",
+      "pendingRegistrationId": "preg_1793120204969_e461f8730ced",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "78932ab7a6e97cb220401098e678b2e13f0c9dedca635ea37ac9dbcf17dab882",
+      "expiresAt": 1793120504970,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793120204970
+    },
+    "otp_1793120204972_2e727e51": {
+      "id": "otp_1793120204972_2e727e51",
+      "pendingRegistrationId": "preg_1793120204972_d725a067744a",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "c3e400d2478b5fb1f02481b33db2401690384c5bf31055f73b4118ac4cdcaad2",
+      "expiresAt": 1793120504972,
+      "attempts": 1,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793120204972
+    },
+    "otp_1793120297406_0880c871": {
+      "id": "otp_1793120297406_0880c871",
+      "pendingRegistrationId": "preg_1793120297404_6f4c3eaded21",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "afd24ace8b0cf1a6ec2411b4b062231b1fad9df13984e42914f43ca89dc86e8a",
+      "expiresAt": 1793120597405,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793120297405
+    },
+    "otp_1793120297409_5bfe375b": {
+      "id": "otp_1793120297409_5bfe375b",
+      "pendingRegistrationId": "preg_1793120297408_1d0097f84484",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "300f6e0d8f3b4ee137830b0690bc86176b6b0b2e1718b55abd62cc605a7273cc",
+      "expiresAt": 1793120597409,
+      "attempts": 1,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793120297409
+    },
+    "otp_1793120311874_1937e8e4": {
+      "id": "otp_1793120311874_1937e8e4",
+      "pendingRegistrationId": "preg_1793120311873_ce3e5878c3ec",
+      "target": "alice@example.com",
+      "verificationType": "email",
+      "hashedOtp": "91f8b3a6641bbd2d6197a36c0bf3879d001b5e0fa570785e5eede4b24e55a494",
+      "expiresAt": 1793120611873,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793120311873
+    },
+    "otp_1793121319151_69ca6548": {
+      "id": "otp_1793121319151_69ca6548",
+      "pendingRegistrationId": "preg_1793121319150_f3b6c2a2b596",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "5b741d8d360c419e216bdfd6bf345deb00552de7e5adb36ffb6f63ff240800af",
+      "expiresAt": 1793121619151,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793121319151
+    },
+    "otp_1793121319159_49a23825": {
+      "id": "otp_1793121319159_49a23825",
+      "pendingRegistrationId": "preg_1793121319159_8cdd9a879d72",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "464c55588f362bd08e077f3c352cc420f87bd5884407c47fbb478c34f5139092",
+      "expiresAt": 1793121619159,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793121319159
+    },
+    "otp_1793121368679_e576f4a9": {
+      "id": "otp_1793121368679_e576f4a9",
+      "pendingRegistrationId": "preg_1793121368678_ab6e2f18ea38",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "7222f20b297809b8e2606578dc6021eb20f92406e8e05c022b7233d462a75a3a",
+      "expiresAt": 1793121668679,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793121368679
+    },
+    "otp_1793121368687_e5ba2501": {
+      "id": "otp_1793121368687_e5ba2501",
+      "pendingRegistrationId": "preg_1793121368687_6c5be3bb1288",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "5f81d8bf3945d0b8d0008d9c45cec47a733b229f1b9dabcd6e7d80769147e714",
+      "expiresAt": 1793121668687,
+      "attempts": 1,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793121368687
+    },
+    "otp_1793121650347_76c5360b": {
+      "id": "otp_1793121650347_76c5360b",
+      "pendingRegistrationId": "preg_1793121650346_44164fcb687e",
+      "target": "test.candidate@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "c766f9d71841efea028a4e5840f7e0621ec04ab8b523c97ce2c879ced5f9abec",
+      "expiresAt": 1793121950347,
+      "attempts": 0,
+      "maxAttempts": 5,
+      "status": "pending",
+      "createdAt": 1793121650347
+    },
+    "otp_1793121650354_b6e9a2e9": {
+      "id": "otp_1793121650354_b6e9a2e9",
+      "pendingRegistrationId": "preg_1793121650354_49d63fdbbc17",
+      "target": "jordan.lee@university.edu",
+      "verificationType": "email",
+      "hashedOtp": "75baeb8e6f973a48fe2831f3a2450be21e8d0171e9b22d0862ed22f748487abb",
+      "expiresAt": 1793121950354,
+      "attempts": 1,
+      "maxAttempts": 5,
+      "status": "verified",
+      "createdAt": 1793121650354
+    }
+  },
+  "devices": {
+    "dev_1793118014377_2ad7f436": {
+      "id": "dev_1793118014377_2ad7f436",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "03438ca690fa61316f34d2bd5674489f31848b0a368a07abff8e2c0d45b9ebd5",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T16:20:14.377Z",
+      "lastVerifiedAt": "2026-10-27T16:20:14.377Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T16:20:14.379Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    },
+    "dev_1793118218642_549b3789": {
+      "id": "dev_1793118218642_549b3789",
+      "userId": "usr_1793118218642",
+      "userEmail": "elena.test@university.edu",
+      "userName": "Elena Rostova",
+      "deviceCredentialHash": "c6aa0900f8f9cf0a3ee08710d4a629bf16242e1696f9f54b156c355a48d142de",
+      "deviceLabel": "Linux Workstation",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.8059.12 Safari/537.36",
+      "ipAddress": "127.0.0.1",
+      "enrolledAt": "2026-10-27T16:23:38.643Z",
+      "lastVerifiedAt": "2026-10-27T16:23:38.643Z",
+      "enrollmentStatus": "active"
+    },
+    "dev_1793118394255_273fbac5": {
+      "id": "dev_1793118394255_273fbac5",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "b797c1236907a1d3d44c46d96275ff8a52c578585cf69124a414fee96d214106",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T16:26:34.255Z",
+      "lastVerifiedAt": "2026-10-27T16:26:34.255Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T16:26:34.257Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    },
+    "dev_1793119641112_1b7ba2e4": {
+      "id": "dev_1793119641112_1b7ba2e4",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "e430e154331a06e2f05e9fa8b306570d287c3a7a2ee60a5507e8fe2e48d08c4b",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T16:47:21.113Z",
+      "lastVerifiedAt": "2026-10-27T16:47:21.113Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T16:47:21.115Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    },
+    "dev_1793120204975_98d37f68": {
+      "id": "dev_1793120204975_98d37f68",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "8ec09fe0731206b6a304c2cf9e80cc2fba8148d85335c8bae2899c9a4d191c22",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T16:56:44.975Z",
+      "lastVerifiedAt": "2026-10-27T16:56:44.975Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T16:56:44.977Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    },
+    "dev_1793120297411_370613bb": {
+      "id": "dev_1793120297411_370613bb",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "64260016cd7523e3465765d50bea16b0add8d7f0ad0cfe592b4f0a1231adf638",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T16:58:17.411Z",
+      "lastVerifiedAt": "2026-10-27T16:58:17.411Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T16:58:17.413Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    },
+    "dev_1793120326085_935a9cc7": {
+      "id": "dev_1793120326085_935a9cc7",
+      "userId": "usr_1793120326085",
+      "userEmail": "alice@example.com",
+      "userName": "Alice Wonder",
+      "deviceCredentialHash": "3142a4918ee6e3873f59ff55cb0bfe187489d70b9b057e0d1ad6a87e612eede1",
+      "deviceLabel": "Desktop Web Browser",
+      "userAgent": "curl/7.88.1",
+      "ipAddress": "127.0.0.1",
+      "enrolledAt": "2026-10-27T16:58:46.085Z",
+      "lastVerifiedAt": "2026-10-27T16:58:46.085Z",
+      "enrollmentStatus": "active"
+    },
+    "dev_1793121319179_be9194a8": {
+      "id": "dev_1793121319179_be9194a8",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "72a403bc7af727579952638e145cc292cec59bc5f4623ab00dd4ddd2acc8bcf5",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T17:15:19.179Z",
+      "lastVerifiedAt": "2026-10-27T17:15:19.179Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T17:15:19.181Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    },
+    "dev_1793121368693_30c67ade": {
+      "id": "dev_1793121368693_30c67ade",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "d1ac226144766080d44707b5c75a7253bdeda1723d154c548a2570bbda55e072",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T17:16:08.693Z",
+      "lastVerifiedAt": "2026-10-27T17:16:08.693Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T17:16:08.695Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    },
+    "dev_1793121650359_4e1bc116": {
+      "id": "dev_1793121650359_4e1bc116",
+      "userId": "usr_test_device_student_1",
+      "userEmail": "dev.student1@university.edu",
+      "userName": "Device Student One",
+      "deviceCredentialHash": "44775a6c8af03453c1a09b816262be9a05a795318674da10e9e5ad0b854442dd",
+      "deviceLabel": "Apple macOS Safari / Chrome",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "ipAddress": "192.168.1.100",
+      "enrolledAt": "2026-10-27T17:20:50.359Z",
+      "lastVerifiedAt": "2026-10-27T17:20:50.359Z",
+      "enrollmentStatus": "revoked",
+      "revokedAt": "2026-10-27T17:20:50.361Z",
+      "recoveryReason": "Approved Device Recovery (Hardware reset)"
+    }
+  },
+  "recoveryRequests": {
+    "rec_1793118014378_3a82de44": {
+      "id": "rec_1793118014378_3a82de44",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T16:20:14.378Z",
+      "reviewedAt": "2026-10-27T16:20:14.379Z",
+      "reviewedBy": "admin@university.edu"
+    },
+    "rec_1793118394256_a159600d": {
+      "id": "rec_1793118394256_a159600d",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T16:26:34.256Z",
+      "reviewedAt": "2026-10-27T16:26:34.257Z",
+      "reviewedBy": "admin@university.edu"
+    },
+    "rec_1793119641114_a6b026ef": {
+      "id": "rec_1793119641114_a6b026ef",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T16:47:21.115Z",
+      "reviewedAt": "2026-10-27T16:47:21.115Z",
+      "reviewedBy": "admin@university.edu"
+    },
+    "rec_1793120204976_624bd83e": {
+      "id": "rec_1793120204976_624bd83e",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T16:56:44.976Z",
+      "reviewedAt": "2026-10-27T16:56:44.977Z",
+      "reviewedBy": "admin@university.edu"
+    },
+    "rec_1793120297412_00764b41": {
+      "id": "rec_1793120297412_00764b41",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T16:58:17.412Z",
+      "reviewedAt": "2026-10-27T16:58:17.413Z",
+      "reviewedBy": "admin@university.edu"
+    },
+    "rec_1793121319180_8e752603": {
+      "id": "rec_1793121319180_8e752603",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T17:15:19.180Z",
+      "reviewedAt": "2026-10-27T17:15:19.181Z",
+      "reviewedBy": "admin@university.edu"
+    },
+    "rec_1793121368694_4167caa9": {
+      "id": "rec_1793121368694_4167caa9",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T17:16:08.694Z",
+      "reviewedAt": "2026-10-27T17:16:08.695Z",
+      "reviewedBy": "admin@university.edu"
+    },
+    "rec_1793121650360_9b799610": {
+      "id": "rec_1793121650360_9b799610",
+      "email": "dev.student1@university.edu",
+      "studentId": "STU-DEV-01",
+      "fullName": "Device Student One",
+      "phone": "+15551234567",
+      "reason": "Hardware reset",
+      "status": "approved",
+      "submittedAt": "2026-10-27T17:20:50.360Z",
+      "reviewedAt": "2026-10-27T17:20:50.361Z",
+      "reviewedBy": "admin@university.edu"
+    }
+  },
+  "auditLogs": [
+    {
+      "id": "audit_1793121650363_5796a713",
+      "userId": "usr_passkey_candidate_1",
+      "actorEmail": "candidate.webauthn@university.edu",
+      "eventType": "WEBAUTHN_PASSKEY_REGISTERED",
+      "timestamp": "2026-10-27T17:20:50.363Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "credentialId": "cred_test_passkey_abc123"
+      }
+    },
+    {
+      "id": "audit_1793121650362_4ca83d02",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T17:20:50.362Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793121650360_9b799610",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793121650361_af7731f7",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T17:20:50.361Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793121650360_9b799610",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793121650360_5f2f575a",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T17:20:50.360Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793121650359_4e1bc116",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793121650358_ed48bb2f",
+      "actorEmail": "jordan.lee@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T17:20:50.359Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793121650354_49d63fdbbc17"
+      }
+    },
+    {
+      "id": "audit_1793121368696_5f46c7f4",
+      "userId": "usr_passkey_candidate_1",
+      "actorEmail": "candidate.webauthn@university.edu",
+      "eventType": "WEBAUTHN_PASSKEY_REGISTERED",
+      "timestamp": "2026-10-27T17:16:08.696Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "credentialId": "cred_test_passkey_abc123"
+      }
+    },
+    {
+      "id": "audit_1793121368695_45361db2",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T17:16:08.695Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793121368694_4167caa9",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793121368694_2424d08b",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T17:16:08.694Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793121368694_4167caa9",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793121368693_d01e9f67",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T17:16:08.693Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793121368693_30c67ade",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793121368691_ee863444",
+      "actorEmail": "jordan.lee@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T17:16:08.691Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793121368687_6c5be3bb1288"
+      }
+    },
+    {
+      "id": "audit_1793121319183_3a352fdf",
+      "userId": "usr_passkey_candidate_1",
+      "actorEmail": "candidate.webauthn@university.edu",
+      "eventType": "WEBAUTHN_PASSKEY_REGISTERED",
+      "timestamp": "2026-10-27T17:15:19.183Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "credentialId": "cred_test_passkey_abc123"
+      }
+    },
+    {
+      "id": "audit_1793121319181_8af1cb1c",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T17:15:19.181Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793121319180_8e752603",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793121319181_9a10ee74",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T17:15:19.181Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793121319180_8e752603",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793121319179_4bfb1604",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T17:15:19.179Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793121319179_be9194a8",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793120326086_dfd3f590",
+      "userId": "usr_1793120326085",
+      "actorEmail": "alice@example.com",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T16:58:46.086Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "curl/7.88.1",
+      "metadata": {
+        "deviceId": "dev_1793120326085_935a9cc7",
+        "deviceLabel": "Desktop Web Browser"
+      }
+    },
+    {
+      "id": "audit_1793120322229_03fc183c",
+      "actorEmail": "alice@example.com",
+      "eventType": "FIREBASE_PHONE_VERIFIED",
+      "timestamp": "2026-10-27T16:58:42.229Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793120311873_ce3e5878c3ec",
+        "firebaseUid": "fb_user_123456",
+        "phoneNumber": "+16505551234"
+      }
+    },
+    {
+      "id": "audit_1793120316344_795ac4f7",
+      "actorEmail": "alice@example.com",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:58:36.344Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793120311873_ce3e5878c3ec"
+      }
+    },
+    {
+      "id": "audit_1793120297414_d1068628",
+      "userId": "usr_passkey_candidate_1",
+      "actorEmail": "candidate.webauthn@university.edu",
+      "eventType": "WEBAUTHN_PASSKEY_REGISTERED",
+      "timestamp": "2026-10-27T16:58:17.414Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "credentialId": "cred_test_passkey_abc123"
+      }
+    },
+    {
+      "id": "audit_1793120297413_e84e0b2c",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T16:58:17.413Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793120297412_00764b41",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793120297413_410e2a1d",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T16:58:17.413Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793120297412_00764b41",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793120297412_f48c3d10",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T16:58:17.412Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793120297411_370613bb",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793120297410_f9d1e90d",
+      "actorEmail": "jordan.lee@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:58:17.410Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793120297408_1d0097f84484"
+      }
+    },
+    {
+      "id": "audit_1793120204979_8b0af1f3",
+      "userId": "usr_passkey_candidate_1",
+      "actorEmail": "candidate.webauthn@university.edu",
+      "eventType": "WEBAUTHN_PASSKEY_REGISTERED",
+      "timestamp": "2026-10-27T16:56:44.979Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "credentialId": "cred_test_passkey_abc123"
+      }
+    },
+    {
+      "id": "audit_1793120204977_09ae5ee6",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T16:56:44.977Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793120204976_624bd83e",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793120204977_3c3c9a56",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T16:56:44.977Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793120204976_624bd83e",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793120204975_62a692d0",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T16:56:44.975Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793120204975_98d37f68",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793120204974_a8e17ba5",
+      "actorEmail": "jordan.lee@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:56:44.974Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793120204972_d725a067744a"
+      }
+    },
+    {
+      "id": "audit_1793119641116_067eda69",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T16:47:21.116Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793119641114_a6b026ef",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793119641115_5d94eb4e",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T16:47:21.115Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793119641114_a6b026ef",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793119641113_5d9f76eb",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T16:47:21.113Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793119641112_1b7ba2e4",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793119641109_92d98e3f",
+      "actorEmail": "jordan.lee@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:47:21.109Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793119641106_a1ef40c7a3fa"
+      }
+    },
+    {
+      "id": "audit_1793118394257_d719f558",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T16:26:34.257Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793118394256_a159600d",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793118394256_b9a9cb8c",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T16:26:34.256Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793118394256_a159600d",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793118394255_03d4b0cc",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T16:26:34.255Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793118394255_273fbac5",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793118394254_0ff9d064",
+      "actorEmail": "jordan.lee@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:26:34.254Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793118394251_37d739e99038"
+      }
+    },
+    {
+      "id": "audit_1793118218643_07583717",
+      "userId": "usr_1793118218642",
+      "actorEmail": "elena.test@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T16:23:38.643Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.8059.12 Safari/537.36",
+      "metadata": {
+        "deviceId": "dev_1793118218642_549b3789",
+        "deviceLabel": "Linux Workstation"
+      }
+    },
+    {
+      "id": "audit_1793118194242_99ca5e30",
+      "actorEmail": "+15551234567",
+      "eventType": "PHONE_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:23:14.242Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793118071747_df677c92c7c7"
+      }
+    },
+    {
+      "id": "audit_1793118141248_551cce4d",
+      "actorEmail": "elena.test@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:22:21.248Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793118071747_df677c92c7c7"
+      }
+    },
+    {
+      "id": "audit_1793118014379_d486485f",
+      "actorEmail": "admin@university.edu",
+      "eventType": "DEVICE_RECOVERY_APPROVED",
+      "timestamp": "2026-10-27T16:20:14.379Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793118014378_3a82de44",
+        "userEmail": "dev.student1@university.edu"
+      }
+    },
+    {
+      "id": "audit_1793118014379_075278a0",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_RECOVERY_REQUESTED",
+      "timestamp": "2026-10-27T16:20:14.379Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "requestId": "rec_1793118014378_3a82de44",
+        "reason": "Hardware reset"
+      }
+    },
+    {
+      "id": "audit_1793118014378_4b7d9a19",
+      "userId": "usr_test_device_student_1",
+      "actorEmail": "dev.student1@university.edu",
+      "eventType": "DEVICE_ENROLLED",
+      "timestamp": "2026-10-27T16:20:14.378Z",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "metadata": {
+        "deviceId": "dev_1793118014377_2ad7f436",
+        "deviceLabel": "Apple macOS Safari / Chrome"
+      }
+    },
+    {
+      "id": "audit_1793118014376_4477631c",
+      "actorEmail": "jordan.lee@university.edu",
+      "eventType": "EMAIL_VERIFIED_OTP",
+      "timestamp": "2026-10-27T16:20:14.376Z",
+      "ipAddress": "127.0.0.1",
+      "userAgent": "",
+      "metadata": {
+        "pendingRegistrationId": "preg_1793118014374_53479f414313"
+      }
+    }
+  ],
+  "deliverySandbox": {
+    "lastEmail": {
+      "to": "jordan.lee@university.edu",
+      "subject": "Email Verification OTP",
+      "otp": "966110",
+      "sentAt": "2026-10-27T17:20:50.356Z",
+      "provider": "gmail_smtp"
+    },
+    "lastSms": {
+      "to": "+15551234567",
+      "otp": "452804",
+      "sentAt": "2026-10-27T16:22:21.249Z",
+      "provider": "development_sandbox"
+    }
+  },
+  "securitySalt": "acef42d0240e07808b0ecc0dd60895cd5b6d011028f827ead81459795c809d26",
+  "webauthnCredentials": {
+    "cred_test_passkey_abc123": {
+      "id": "cred_test_passkey_abc123",
+      "userId": "usr_passkey_candidate_1",
+      "userEmail": "candidate.webauthn@university.edu",
+      "publicKey": "sample_raw_public_key_bytes",
+      "counter": 0,
+      "deviceType": "platform",
+      "backedUp": true,
+      "createdAt": "2026-10-27T17:20:50.363Z"
+    }
+  },
+  "webauthnChallenges": {
+    "7cGIULOGhWQ1Og5f5LhSMXMsyqy6OVRRwkiyTvP1TTk": {
+      "challenge": "7cGIULOGhWQ1Og5f5LhSMXMsyqy6OVRRwkiyTvP1TTk",
+      "expiresAt": 1793120633034,
+      "userEmail": "alice@example.com"
+    },
+    "ewkdzZ2W_t6NwnhqXuf3XM6WrOZSxSqEPrMqEsc1f64": {
+      "challenge": "ewkdzZ2W_t6NwnhqXuf3XM6WrOZSxSqEPrMqEsc1f64",
+      "expiresAt": 1793121443823,
+      "userEmail": "alex.mercer@university.edu"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Secure Online Examination Portal Firebase Blueprint",
+  "entities": {
+    "users": {
+      "title": "User",
+      "description": "Student and administrator profiles with verification flags and credentials",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "role": { "type": "string", "enum": ["student", "admin"] },
+        "institutionId": { "type": "string" },
+        "department": { "type": "string" },
+        "studentId": { "type": "string" },
+        "adminId": { "type": "string" },
+        "emailVerified": { "type": "boolean" },
+        "phoneVerified": { "type": "boolean" },
+        "faceEnrollmentStatus": { "type": "string", "enum": ["not_enrolled", "pending", "enrolled"] },
+        "faceTemplateReference": { "type": "string" },
+        "accountStatus": { "type": "string", "enum": ["active", "suspended", "review"] },
+        "avatarUrl": { "type": "string" },
+        "activeDeviceId": { "type": "string" },
+        "hasPasskey": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "fullName", "email", "role", "emailVerified", "phoneVerified"]
+    },
+    "exams": {
+      "title": "Exam",
+      "description": "Published examinations and proctoring policies",
+      "type": "object",
+      "properties": {
+        "examId": { "type": "string" },
+        "title": { "type": "string" },
+        "subject": { "type": "string" },
+        "description": { "type": "string" },
+        "durationMinutes": { "type": "number" },
+        "totalMarks": { "type": "number" },
+        "passingMarks": { "type": "number" },
+        "startTime": { "type": "string" },
+        "endTime": { "type": "string" },
+        "allowedAttempts": { "type": "number" },
+        "status": { "type": "string", "enum": ["draft", "published", "archived"] },
+        "createdBy": { "type": "string" }
+      },
+      "required": ["examId", "title", "durationMinutes", "totalMarks", "status"]
+    },
+    "attempts": {
+      "title": "ExamAttempt",
+      "description": "Student examination attempts, score evaluation, and proctoring logs",
+      "type": "object",
+      "properties": {
+        "attemptId": { "type": "string" },
+        "examId": { "type": "string" },
+        "userId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "studentEmail": { "type": "string" },
+        "status": { "type": "string", "enum": ["in_progress", "submitted", "terminated"] },
+        "score": { "type": "number" },
+        "passed": { "type": "boolean" },
+        "violationCount": { "type": "number" },
+        "submitTime": { "type": "string" }
+      },
+      "required": ["attemptId", "examId", "userId", "status"]
+    },
+    "devices": {
+      "title": "DeviceEnrollment",
+      "description": "Enrolled hardware devices adhering to One Device = One Account Policy",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "userName": { "type": "string" },
+        "deviceCredentialHash": { "type": "string" },
+        "deviceLabel": { "type": "string" },
+        "enrollmentStatus": { "type": "string", "enum": ["active", "revoked", "recovery_pending"] },
+        "enrolledAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "deviceCredentialHash", "enrollmentStatus"]
+    },
+    "deviceRecoveries": {
+      "title": "DeviceRecoveryRequest",
+      "description": "Formal user device recovery requests reviewed by administrators",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "studentId": { "type": "string" },
+        "fullName": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "submittedAt": { "type": "string" }
+      },
+      "required": ["id", "email", "studentId", "status"]
+    },
+    "auditLogs": {
+      "title": "AuditLog",
+      "description": "Immutable security and proctoring audit trails",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "eventType": { "type": "string" },
+        "actorEmail": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "metadata": { "type": "object" }
+      },
+      "required": ["id", "eventType", "timestamp"]
+    }
+  }
+}

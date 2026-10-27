@@ -14,10 +14,65 @@ export interface User {
   phoneVerified: boolean;
   faceEnrollmentStatus: 'enrolled' | 'pending' | 'failed';
   faceTemplateReference?: string;
+  hasPasskey?: boolean;
+  webauthnCredentialId?: string;
   accountStatus: 'active' | 'suspended' | 'pending_verification';
+  registrationStatus?: 'pending' | 'active' | 'suspended';
+  activeDeviceId?: string;
+  passwordHash?: string;
   avatarUrl?: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export type OTPType = 'email' | 'phone';
+export type OTPStatus = 'pending' | 'verified' | 'expired' | 'max_attempts_exceeded';
+
+export interface OTPVerification {
+  id: string;
+  pendingRegistrationId: string;
+  target: string; // email or phone number
+  verificationType: OTPType;
+  hashedOtp: string;
+  expiresAt: string;
+  attempts: number;
+  maxAttempts: number;
+  verifiedAt?: string;
+  status: OTPStatus;
+  lastSentAt: string;
+}
+
+export type DeviceEnrollmentStatus = 'active' | 'revoked' | 'recovery_pending';
+
+export interface DeviceEnrollment {
+  id: string;
+  userId: string;
+  userEmail: string;
+  userName: string;
+  deviceCredentialHash: string;
+  deviceLabel: string;
+  userAgent: string;
+  ipAddress: string;
+  enrolledAt: string;
+  lastVerifiedAt: string;
+  enrollmentStatus: DeviceEnrollmentStatus;
+  revokedAt?: string;
+  recoveryReason?: string;
+}
+
+export interface DeviceRecoveryRequest {
+  id: string;
+  userId?: string;
+  email: string;
+  studentId: string;
+  fullName: string;
+  phone: string;
+  reason: string;
+  status: 'pending' | 'approved' | 'rejected';
+  submittedAt: string;
+  reviewedAt?: string;
+  reviewedBy?: string;
+  adminNotes?: string;
 }
 
 export type QuestionType = 'single_mcq' | 'multiple_mcq' | 'true_false' | 'short_answer' | 'descriptive';

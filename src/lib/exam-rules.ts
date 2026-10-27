@@ -161,14 +161,37 @@ export function shouldDebounceViolation(
 /**
  * Calculates remaining time given an authoritative deadline.
  */
-export function calculateTimeRemaining(deadlineMs: number, nowMs: number) {
+export type TimerUrgency = 'normal' | 'low' | 'critical' | 'expired';
+
+export interface TimeRemainingInfo {
+  totalSeconds: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  isExpired: boolean;
+  isTenMinutesLeft: boolean;
+  isFiveMinutesLeft: boolean;
+  isOneMinuteLeft: boolean;
+  formatted: string;
+  urgency: TimerUrgency;
+  percentageRemaining: number;
+}
+
+/**
+ * Calculates remaining time given an authoritative deadline.
+ */
+export function calculateTimeRemaining(
+  deadlineMs: number,
+  nowMs: number,
+  totalDurationSeconds?: number
+): TimeRemainingInfo {
   const diffMs = Math.max(0, deadlineMs - nowMs);
   const totalSeconds = Math.floor(diffMs / 1000);
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
-  const isExpired = diffMs <= 0;
+  const isExpired = diffMs <= 0 || totalSeconds <= 0;
   const isTenMinutesLeft = !isExpired && totalSeconds <= 600 && totalSeconds > 300;
   const isFiveMinutesLeft = !isExpired && totalSeconds <= 300 && totalSeconds > 60;
   const isOneMinuteLeft = !isExpired && totalSeconds <= 60;
@@ -176,6 +199,20 @@ export function calculateTimeRemaining(deadlineMs: number, nowMs: number) {
   const formatted = hours > 0
     ? `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
     : `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+  let urgency: TimerUrgency = 'normal';
+  if (isExpired) {
+    urgency = 'expired';
+  } else if (isOneMinuteLeft) {
+    urgency = 'critical';
+  } else if (isFiveMinutesLeft) {
+    urgency = 'low';
+  }
+
+  const baseTotal = totalDurationSeconds && totalDurationSeconds > 0 ? totalDurationSeconds : 3600;
+  const percentageRemaining = isExpired
+    ? 0
+    : Math.max(0, Math.min(100, Math.round((totalSeconds / baseTotal) * 1000) / 10));
 
   return {
     totalSeconds,
@@ -187,6 +224,8 @@ export function calculateTimeRemaining(deadlineMs: number, nowMs: number) {
     isFiveMinutesLeft,
     isOneMinuteLeft,
     formatted,
+    urgency,
+    percentageRemaining,
   };
 }
 

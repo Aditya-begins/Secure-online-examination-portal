@@ -3,6 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // HMR: Disabled. Ignore Vite HMR WebSocket connection errors in sandbox iframe environment
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event.reason;
+        if (reason && (
+          (reason.message && (reason.message.indexOf('WebSocket') !== -1 || reason.message.indexOf('vite') !== -1)) ||
+          String(reason).indexOf('WebSocket') !== -1
+        )) {
+          event.preventDefault();
+        }
+      });
+      window.addEventListener('error', function(event) {
+        if (
+          (event.filename && event.filename.indexOf('@vite/client') !== -1) ||
+          (event.message && event.message.indexOf('WebSocket') !== -1)
+        ) {
+          event.preventDefault();
+        }
+      });
+    </script>
     <title>Secure Online Examination Portal</title>
     <meta name="description" content="Smart Exams. Secure Environment. Intelligent Evaluation. Professional AI-proctored online examination platform with face verification, live monitoring, timed tests, and performance analytics." />
     <meta property="og:title" content="Secure Online Examination Portal" />
